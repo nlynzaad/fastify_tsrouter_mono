@@ -1,0 +1,11 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"extends": "../../tooling/typescript-config/tsconfig.web.json",
+	"include": ["src", "vite.config.ts", "dev-server.ts"],
+	"exclude": ["node_modules"],
+	"compilerOptions": {
+		"paths": {
+			"@web/*": ["./src/*"]
+		}
+	}
+}

@@ -1,0 +1,27 @@
+{
+	"name": "@repo/typescript-config",
+	"version": "0.0.0",
+	"private": true,
+	"license": "MIT",
+	"publishConfig": {
+		"access": "public"
+	},
+	"files": ["./tsconfig.base.json", "tsconfig.internal.json", "tsconfig.server.json", "tsconfig.web.json"],
+	"exports": {
+		"./tsconfig.base.json": {
+			"import": ["./tsconfig.base.json"]
+		},
+		"./tsconfig.internal.json": {
+			"import": ["./tsconfig.internal.json"]
+		},
+		"./tsconfig.server.json": {
+			"import": ["./tsconfig.server.json"]
+		},
+		"./tsconfig.web.json": {
+			"import": ["./tsconfig.web.json"]
+		}
+	},
+	"devDependencies": {
+		"typescript": "^5.8.3"
+	}
+}

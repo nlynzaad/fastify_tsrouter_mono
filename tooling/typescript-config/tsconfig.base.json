@@ -1,0 +1,23 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"compilerOptions": {
+		"composite": true,
+		"allowJs": true,
+		"declaration": true,
+		"declarationMap": true,
+		"esModuleInterop": true,
+		"incremental": true,
+		"isolatedModules": true,
+		"target": "ESNext",
+		"moduleResolution": "bundler",
+		"module": "ESNext",
+		"lib": ["DOM", "DOM.Iterable", "ESNext"],
+		"noEmit": false,
+		"noUncheckedIndexedAccess": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"jsx": "preserve"
+	},
+	"exclude": ["node_modules"]
+}
