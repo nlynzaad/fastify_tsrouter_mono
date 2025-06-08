@@ -3,13 +3,6 @@ import { createRequestHandler, defaultStreamHandler } from '@tanstack/react-star
 import { createRouter } from '@web/router'
 import type {IncomingMessage, ServerResponse} from "node:http";
 
-export async function render(request: Request) {
-	return createRequestHandler({
-		createRouter,
-		request
-	})(defaultStreamHandler)
-}
-
 export default async function handler(
 	req: IncomingMessage,
 	res: ServerResponse,
