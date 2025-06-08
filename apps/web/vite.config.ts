@@ -21,9 +21,7 @@ const ssrBuildConfig: UserConfig = {
 		copyPublicDir: false,
 		emptyOutDir: true,
 		rollupOptions: {
-			input: {'entry-server': resolve(__dirname, 'src/entry-server.ts')},
 			output: {
-				entryFileNames: '[name].js',
 				chunkFileNames: 'assets/[name]-[hash].js',
 				assetFileNames: 'assets/[name]-[hash][extname]'
 			}
@@ -37,6 +35,7 @@ const clientBuildConfig: UserConfig = {
 		outDir: 'dist/client',
 		emitAssets: true,
 		manifest: true,
+		minify: true,
 		copyPublicDir: true,
 		emptyOutDir: true,
 		rollupOptions: {
