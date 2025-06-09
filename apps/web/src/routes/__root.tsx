@@ -53,8 +53,8 @@ function RootComponent() {
 					<Link to='/counter' activeProps={{ style: { font: 'font-bold' } }} activeOptions={{ exact: true }}>
 						Counter
 					</Link>{' '}
-					<Link to='/interval' activeProps={{ style: { font: 'font-bold' } }} activeOptions={{ exact: true }}>
-						Interval
+					<Link to='/hello' activeProps={{ style: { font: 'font-bold' } }} activeOptions={{ exact: true }}>
+						Hello
 					</Link>{' '}
 					<Link to='/sseTime' activeProps={{ className: 'font-bold' }} activeOptions={{ exact: true }}>
 						Server Time
