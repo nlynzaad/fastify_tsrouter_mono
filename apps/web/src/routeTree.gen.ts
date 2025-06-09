@@ -11,53 +11,53 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as AboutImport } from './routes/about'
-import { Route as IndexImport } from './routes/index'
-import { Route as UsersIndexImport } from './routes/users/index'
-import { Route as SseTimeIndexImport } from './routes/sseTime/index'
-import { Route as IntervalIndexImport } from './routes/interval/index'
-import { Route as CounterIndexImport } from './routes/counter/index'
-import { Route as UsersUserIdImport } from './routes/users/$userId'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as IndexRouteImport } from './routes/index'
+import { Route as UsersIndexRouteImport } from './routes/users/index'
+import { Route as SseTimeIndexRouteImport } from './routes/sseTime/index'
+import { Route as IntervalIndexRouteImport } from './routes/interval/index'
+import { Route as CounterIndexRouteImport } from './routes/counter/index'
+import { Route as UsersUserIdRouteImport } from './routes/users/$userId'
 
 // Create/Update Routes
 
-const AboutRoute = AboutImport.update({
+const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
   getParentRoute: () => rootRoute,
 } as any)
 
-const IndexRoute = IndexImport.update({
+const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const UsersIndexRoute = UsersIndexImport.update({
+const UsersIndexRoute = UsersIndexRouteImport.update({
   id: '/users/',
   path: '/users/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const SseTimeIndexRoute = SseTimeIndexImport.update({
+const SseTimeIndexRoute = SseTimeIndexRouteImport.update({
   id: '/sseTime/',
   path: '/sseTime/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const IntervalIndexRoute = IntervalIndexImport.update({
+const IntervalIndexRoute = IntervalIndexRouteImport.update({
   id: '/interval/',
   path: '/interval/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const CounterIndexRoute = CounterIndexImport.update({
+const CounterIndexRoute = CounterIndexRouteImport.update({
   id: '/counter/',
   path: '/counter/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const UsersUserIdRoute = UsersUserIdImport.update({
+const UsersUserIdRoute = UsersUserIdRouteImport.update({
   id: '/users/$userId',
   path: '/users/$userId',
   getParentRoute: () => rootRoute,
@@ -71,49 +71,49 @@ declare module '@tanstack/react-router' {
       id: '/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexImport
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRoute
     }
     '/about': {
       id: '/about'
       path: '/about'
       fullPath: '/about'
-      preLoaderRoute: typeof AboutImport
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRoute
     }
     '/users/$userId': {
       id: '/users/$userId'
       path: '/users/$userId'
       fullPath: '/users/$userId'
-      preLoaderRoute: typeof UsersUserIdImport
+      preLoaderRoute: typeof UsersUserIdRouteImport
       parentRoute: typeof rootRoute
     }
     '/counter/': {
       id: '/counter/'
       path: '/counter'
       fullPath: '/counter'
-      preLoaderRoute: typeof CounterIndexImport
+      preLoaderRoute: typeof CounterIndexRouteImport
       parentRoute: typeof rootRoute
     }
     '/interval/': {
       id: '/interval/'
       path: '/interval'
       fullPath: '/interval'
-      preLoaderRoute: typeof IntervalIndexImport
+      preLoaderRoute: typeof IntervalIndexRouteImport
       parentRoute: typeof rootRoute
     }
     '/sseTime/': {
       id: '/sseTime/'
       path: '/sseTime'
       fullPath: '/sseTime'
-      preLoaderRoute: typeof SseTimeIndexImport
+      preLoaderRoute: typeof SseTimeIndexRouteImport
       parentRoute: typeof rootRoute
     }
     '/users/': {
       id: '/users/'
       path: '/users'
       fullPath: '/users'
-      preLoaderRoute: typeof UsersIndexImport
+      preLoaderRoute: typeof UsersIndexRouteImport
       parentRoute: typeof rootRoute
     }
   }
