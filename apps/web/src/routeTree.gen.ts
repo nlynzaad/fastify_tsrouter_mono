@@ -15,7 +15,7 @@ import { Route as AboutImport } from './routes/about'
 import { Route as IndexImport } from './routes/index'
 import { Route as UsersIndexImport } from './routes/users/index'
 import { Route as SseTimeIndexImport } from './routes/sseTime/index'
-import { Route as IntervalIndexImport } from './routes/interval/index'
+import { Route as HelloIndexImport } from './routes/hello/index'
 import { Route as CounterIndexImport } from './routes/counter/index'
 import { Route as UsersUserIdImport } from './routes/users/$userId'
 
@@ -45,9 +45,9 @@ const SseTimeIndexRoute = SseTimeIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const IntervalIndexRoute = IntervalIndexImport.update({
-  id: '/interval/',
-  path: '/interval/',
+const HelloIndexRoute = HelloIndexImport.update({
+  id: '/hello/',
+  path: '/hello/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -95,11 +95,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CounterIndexImport
       parentRoute: typeof rootRoute
     }
-    '/interval/': {
-      id: '/interval/'
-      path: '/interval'
-      fullPath: '/interval'
-      preLoaderRoute: typeof IntervalIndexImport
+    '/hello/': {
+      id: '/hello/'
+      path: '/hello'
+      fullPath: '/hello'
+      preLoaderRoute: typeof HelloIndexImport
       parentRoute: typeof rootRoute
     }
     '/sseTime/': {
@@ -126,7 +126,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/users/$userId': typeof UsersUserIdRoute
   '/counter': typeof CounterIndexRoute
-  '/interval': typeof IntervalIndexRoute
+  '/hello': typeof HelloIndexRoute
   '/sseTime': typeof SseTimeIndexRoute
   '/users': typeof UsersIndexRoute
 }
@@ -136,7 +136,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/users/$userId': typeof UsersUserIdRoute
   '/counter': typeof CounterIndexRoute
-  '/interval': typeof IntervalIndexRoute
+  '/hello': typeof HelloIndexRoute
   '/sseTime': typeof SseTimeIndexRoute
   '/users': typeof UsersIndexRoute
 }
@@ -147,7 +147,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/users/$userId': typeof UsersUserIdRoute
   '/counter/': typeof CounterIndexRoute
-  '/interval/': typeof IntervalIndexRoute
+  '/hello/': typeof HelloIndexRoute
   '/sseTime/': typeof SseTimeIndexRoute
   '/users/': typeof UsersIndexRoute
 }
@@ -159,7 +159,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/users/$userId'
     | '/counter'
-    | '/interval'
+    | '/hello'
     | '/sseTime'
     | '/users'
   fileRoutesByTo: FileRoutesByTo
@@ -168,7 +168,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/users/$userId'
     | '/counter'
-    | '/interval'
+    | '/hello'
     | '/sseTime'
     | '/users'
   id:
@@ -177,7 +177,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/users/$userId'
     | '/counter/'
-    | '/interval/'
+    | '/hello/'
     | '/sseTime/'
     | '/users/'
   fileRoutesById: FileRoutesById
@@ -188,7 +188,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   UsersUserIdRoute: typeof UsersUserIdRoute
   CounterIndexRoute: typeof CounterIndexRoute
-  IntervalIndexRoute: typeof IntervalIndexRoute
+  HelloIndexRoute: typeof HelloIndexRoute
   SseTimeIndexRoute: typeof SseTimeIndexRoute
   UsersIndexRoute: typeof UsersIndexRoute
 }
@@ -198,7 +198,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   UsersUserIdRoute: UsersUserIdRoute,
   CounterIndexRoute: CounterIndexRoute,
-  IntervalIndexRoute: IntervalIndexRoute,
+  HelloIndexRoute: HelloIndexRoute,
   SseTimeIndexRoute: SseTimeIndexRoute,
   UsersIndexRoute: UsersIndexRoute,
 }
@@ -217,7 +217,7 @@ export const routeTree = rootRoute
         "/about",
         "/users/$userId",
         "/counter/",
-        "/interval/",
+        "/hello/",
         "/sseTime/",
         "/users/"
       ]
@@ -234,8 +234,8 @@ export const routeTree = rootRoute
     "/counter/": {
       "filePath": "counter/index.tsx"
     },
-    "/interval/": {
-      "filePath": "interval/index.tsx"
+    "/hello/": {
+      "filePath": "hello/index.tsx"
     },
     "/sseTime/": {
       "filePath": "sseTime/index.tsx"
