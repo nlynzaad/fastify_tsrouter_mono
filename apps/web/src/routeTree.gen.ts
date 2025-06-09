@@ -8,9 +8,7 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-// Import Routes
-
-import { Route as rootRoute } from './routes/__root'
+import { Route as rootRouteImport } from './routes/__root'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as UsersIndexRouteImport } from './routes/users/index'
@@ -19,107 +17,41 @@ import { Route as IntervalIndexRouteImport } from './routes/interval/index'
 import { Route as CounterIndexRouteImport } from './routes/counter/index'
 import { Route as UsersUserIdRouteImport } from './routes/users/$userId'
 
-// Create/Update Routes
-
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
 const UsersIndexRoute = UsersIndexRouteImport.update({
   id: '/users/',
   path: '/users/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
 const SseTimeIndexRoute = SseTimeIndexRouteImport.update({
   id: '/sseTime/',
   path: '/sseTime/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
 const IntervalIndexRoute = IntervalIndexRouteImport.update({
   id: '/interval/',
   path: '/interval/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
 const CounterIndexRoute = CounterIndexRouteImport.update({
   id: '/counter/',
   path: '/counter/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
 const UsersUserIdRoute = UsersUserIdRouteImport.update({
   id: '/users/$userId',
   path: '/users/$userId',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-// Populate the FileRoutesByPath interface
-
-declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRoute
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRoute
-    }
-    '/users/$userId': {
-      id: '/users/$userId'
-      path: '/users/$userId'
-      fullPath: '/users/$userId'
-      preLoaderRoute: typeof UsersUserIdRouteImport
-      parentRoute: typeof rootRoute
-    }
-    '/counter/': {
-      id: '/counter/'
-      path: '/counter'
-      fullPath: '/counter'
-      preLoaderRoute: typeof CounterIndexRouteImport
-      parentRoute: typeof rootRoute
-    }
-    '/interval/': {
-      id: '/interval/'
-      path: '/interval'
-      fullPath: '/interval'
-      preLoaderRoute: typeof IntervalIndexRouteImport
-      parentRoute: typeof rootRoute
-    }
-    '/sseTime/': {
-      id: '/sseTime/'
-      path: '/sseTime'
-      fullPath: '/sseTime'
-      preLoaderRoute: typeof SseTimeIndexRouteImport
-      parentRoute: typeof rootRoute
-    }
-    '/users/': {
-      id: '/users/'
-      path: '/users'
-      fullPath: '/users'
-      preLoaderRoute: typeof UsersIndexRouteImport
-      parentRoute: typeof rootRoute
-    }
-  }
-}
-
-// Create and export the route tree
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -130,7 +62,6 @@ export interface FileRoutesByFullPath {
   '/sseTime': typeof SseTimeIndexRoute
   '/users': typeof UsersIndexRoute
 }
-
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
@@ -140,9 +71,8 @@ export interface FileRoutesByTo {
   '/sseTime': typeof SseTimeIndexRoute
   '/users': typeof UsersIndexRoute
 }
-
 export interface FileRoutesById {
-  __root__: typeof rootRoute
+  __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/users/$userId': typeof UsersUserIdRoute
@@ -151,7 +81,6 @@ export interface FileRoutesById {
   '/sseTime/': typeof SseTimeIndexRoute
   '/users/': typeof UsersIndexRoute
 }
-
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
@@ -182,7 +111,6 @@ export interface FileRouteTypes {
     | '/users/'
   fileRoutesById: FileRoutesById
 }
-
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
@@ -191,6 +119,60 @@ export interface RootRouteChildren {
   IntervalIndexRoute: typeof IntervalIndexRoute
   SseTimeIndexRoute: typeof SseTimeIndexRoute
   UsersIndexRoute: typeof UsersIndexRoute
+}
+
+declare module '@tanstack/react-router' {
+  interface FileRoutesByPath {
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/users/$userId': {
+      id: '/users/$userId'
+      path: '/users/$userId'
+      fullPath: '/users/$userId'
+      preLoaderRoute: typeof UsersUserIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/counter/': {
+      id: '/counter/'
+      path: '/counter'
+      fullPath: '/counter'
+      preLoaderRoute: typeof CounterIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/interval/': {
+      id: '/interval/'
+      path: '/interval'
+      fullPath: '/interval'
+      preLoaderRoute: typeof IntervalIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sseTime/': {
+      id: '/sseTime/'
+      path: '/sseTime'
+      fullPath: '/sseTime'
+      preLoaderRoute: typeof SseTimeIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/users/': {
+      id: '/users/'
+      path: '/users'
+      fullPath: '/users'
+      preLoaderRoute: typeof UsersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+  }
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -202,47 +184,6 @@ const rootRouteChildren: RootRouteChildren = {
   SseTimeIndexRoute: SseTimeIndexRoute,
   UsersIndexRoute: UsersIndexRoute,
 }
-
-export const routeTree = rootRoute
+export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-/* ROUTE_MANIFEST_START
-{
-  "routes": {
-    "__root__": {
-      "filePath": "__root.tsx",
-      "children": [
-        "/",
-        "/about",
-        "/users/$userId",
-        "/counter/",
-        "/interval/",
-        "/sseTime/",
-        "/users/"
-      ]
-    },
-    "/": {
-      "filePath": "index.tsx"
-    },
-    "/about": {
-      "filePath": "about.tsx"
-    },
-    "/users/$userId": {
-      "filePath": "users/$userId.tsx"
-    },
-    "/counter/": {
-      "filePath": "counter/index.tsx"
-    },
-    "/interval/": {
-      "filePath": "interval/index.tsx"
-    },
-    "/sseTime/": {
-      "filePath": "sseTime/index.tsx"
-    },
-    "/users/": {
-      "filePath": "users/index.tsx"
-    }
-  }
-}
-ROUTE_MANIFEST_END */

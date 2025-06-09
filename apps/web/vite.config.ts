@@ -1,6 +1,6 @@
 import {dirname, resolve} from 'node:path'
 import {fileURLToPath} from 'node:url'
-import {TanStackRouterVite} from '@tanstack/router-plugin/vite'
+import tanstackRouter from '@tanstack/router-plugin/vite'
 import {vaviteConnect} from "@vavite/connect";
 import react from '@vitejs/plugin-react'
 import {defineConfig} from 'vite'
@@ -57,9 +57,10 @@ export default defineConfig((configEnv: ConfigEnv): UserConfig => {
 		},
 		plugins: [
 			viteTsConfigPaths(),
-			TanStackRouterVite({
+			tanstackRouter({
 				target: 'react',
-				autoCodeSplitting: true
+				autoCodeSplitting: true,
+				tmpDir: resolve(__dirname, 'tmp'),
 			}),
 			vaviteConnect({
 				handlerEntry: resolve(__dirname, 'src/entry-server.ts'),
