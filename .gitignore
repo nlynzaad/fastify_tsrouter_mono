@@ -26,6 +26,7 @@ coverage
 out/
 build
 dist
+tmp/
 
 
 # Debug
@@ -36,6 +37,7 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+apps/web/src/routeTree.gen.ts
 
 #IDE
 .vscode
