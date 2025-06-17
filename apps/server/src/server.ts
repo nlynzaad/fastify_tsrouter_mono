@@ -1,5 +1,6 @@
 import {dirname} from "node:path";
 import {fileURLToPath} from "node:url";
+import {constants as zlibConstants} from "node:zlib";
 import {fastifyExpress} from "@fastify/express";
 import Fastify from "fastify";
 import {FastifySSEPlugin} from "fastify-sse-v2";
@@ -34,8 +35,18 @@ await fastify.register(sensible);
 
 if (import.meta.env.PROD) {
 	try {
+		const compression = (await import('compression')).default
+
+		fastify.use(compression({
+			brotli: {
+				flush: zlibConstants.BROTLI_OPERATION_FLUSH,
+			},
+			flush: zlibConstants.Z_SYNC_FLUSH,
+		}));
+
 		//load web frontend
 		await loadFrontEnd(fastify);
+
 		await fastify.listen({port: 3000})
 	} catch (err) {
 		fastify.log.error(err);

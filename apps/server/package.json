@@ -22,6 +22,7 @@
 		"@fastify/sensible": "^6.0.3",
 		"@fastify/static": "^8.2.0",
 		"@repo/web": "workspace:*",
+		"compression": "^1.8.0",
 		"fastify": "^5.3.3",
 		"fastify-plugin": "^5.0.1",
 		"fastify-sse-v2": "^4.2.1"
@@ -29,6 +30,7 @@
 	"devDependencies": {
 		"@repo/eslint-config": "workspace:*",
 		"@repo/typescript-config": "workspace:*",
+		"@types/compression": "^1.8.1",
 		"@types/node": "^22.15.29",
 		"eslint": "^9.28.0",
 		"eslint-import-resolver-typescript": "^4.4.3",
